@@ -1,0 +1,594 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display';
+    background-color: rgb(233, 233, 233);
+    padding-top: 46px;
+}
+
+header {
+    background-color: #0050B3;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:99; 
+}
+
+button {
+    cursor:pointer;
+}
+
+.header-block {
+    /* border:1px solid rgb(212, 212, 212); */
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center; /* Вырвавниваются отн. друг к другу по вертикали */
+    justify-content: space-between; 
+}
+
+/*Бургер меню */
+.m-menu{
+    border:none;
+    width:32px;
+    height: 32px;
+    background-color: transparent; /*Прозрачный*/
+    flex-direction: column;
+    padding:0;
+    justify-content: space-around;
+    display:none;
+    margin-left: 12px;
+}
+
+.m-menu .line {
+  width:100%;
+  height:1px;
+  background-color: #fff;
+}
+/*Бургер меню */
+
+.search-input {
+padding: 5px 30px 5px 12px;    
+width: 336px;
+width: 100%;
+line-height: 22px;
+background: #fff;
+border:1px solid #d9d9d9;
+border-radius: 4px;
+background-image: url(../icons/search.png);
+background-repeat: no-repeat;
+background-position: right 12px center;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-panel {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-link {
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-link:before{
+content: "";
+display: inline-block;
+margin-right: 16px;
+width: 1px;
+height: 16px;
+background: #003A8C;
+}
+
+.navigation-link:last-child:after{
+    content: "";
+    display: inline-block;
+    margin-left: 12px;
+    width: 1px;
+    height: 16px;
+    background: #003A8C;
+    }
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    margin-right: 8px;
+}
+
+.user-avatar:hover{
+    cursor: pointer;
+}
+
+.user-name {
+    color:white;
+    font-size:14px;
+    font-weight: 600;
+}
+
+.icons-link {
+    margin-left: 17px;
+    text-decoration: none;
+    align-items: center;
+    margin-left: 17px;
+}
+
+.header-icon {
+    fill: #002766;
+}
+
+.header-icon:hover path{
+fill:white;
+}
+
+.icons-link:last-child:before{
+    content: "";
+    display: inline-block;
+    align-items:center;
+    width: 1px;
+    height: 16px;
+    margin-right: 12px;
+    background: #003A8C;
+}
+
+.menu-user-name {
+    font-size:14px;
+    font-weight: 600;
+    color:#262626;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between; /* Отступы между элементами будут больше */
+}
+
+.menu-sidebar {
+    margin-top: 18px;
+    width: 192px;
+    margin-right: 12px;
+}
+
+.menu-sidebar .user-avatar {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.menu-sidebar .user-name {
+    color:#262626;
+    font-size:14px ;
+    font-weight: normal;
+    line-height: 22px;
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column; /* Элементы идут друг за другом! */
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.nav-link {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center; /* Текст относительно картинки выстраивается по центру */
+    border-radius: 4px;
+    text-decoration: none;
+    color: #595959;
+    line-height: 22px;
+    font-weight: normal;
+}
+
+.nav-link.active {
+background: #FFFFFF;
+color:#262626;  
+}
+
+.nav-link:hover{
+    background: rgb(255, 255, 255);
+}
+
+.nav-text {
+margin-left: 8px;
+}
+
+.nav-title {
+font-size: 15px;
+line-height: 20px;
+color:#262626;
+font-weight: 600;
+padding-left: 10px;
+margin-top: 0;
+}
+
+/* Новостная лента- стена */
+
+.main-feed {
+    max-width: 588px;
+    margin-top: 18px;
+    flex-grow:1; /*Элемент не сжиается за счет правил флекса */
+}
+
+.create-post {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    overflow: hidden; /* не нарушается скругления */
+    width: 100%;
+}
+
+.create-post-header {
+    padding: 9px 16px;
+    background: #F5F5F5;
+}
+
+.create-post-title {
+font-size: 14px;
+line-height: 22px;
+font-weight: 600;
+color: #595959;
+margin: 0;
+}
+
+.create-post-body {
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 4px;
+    padding-right: 16px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.create-post-input {
+    padding-top: 8px;
+    /* Ширина 100% для того , чтобы в поле ввода , при ведении текста текст перемещался на новую строку*/
+    width:100%; 
+    font-size: 16px;
+    line-height: 24px;
+    color: #8C8C8C;
+}
+
+.create-post-footer:before{
+content: '';
+width:100%;
+height: 1px;
+align-items: center;
+background-color: #e8e8e8;
+margin-bottom: 16px;
+}
+
+.tag{
+background: #f5f5f5;
+border:none;
+padding: 9px 12px ;
+border-radius:48px;
+display: flex;
+align-items:center;
+margin-right: 8px;
+}  
+
+.tag:hover {
+    background: #e6e5e5;
+}
+
+.tag-icon {
+    margin-right: 8px;
+}
+
+.create-post-footer {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    flex-wrap:wrap; /*Если вдруг что-то не помещается в блоке , то переносится на новую строчку */
+    /* border-top:1px solid #c5c5c5; - Граница сверху между элементами*/
+    padding: 0px 16px 16px;
+}
+
+/* Новостные события в ленте */
+
+.post {
+background: #FFFFFF;
+/* Elevation 1 */
+box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+border-radius: 4px;
+margin: 16px 0;
+padding: 16px;
+}
+
+.post-header {
+margin-bottom: 16px;
+display: flex;
+justify-content: space-between;
+}
+
+.post-author {
+font-size: 15px;
+line-height: 22px;
+/* identical to box height, or 157% */
+align-items: center;
+/* Daybreak Blue / blue-8 */
+color: #0050B3;
+text-decoration: none;
+font-weight: 600;
+}
+
+.post-header-button {
+    background: rgb(255, 255, 255);
+    border:none;
+}
+
+.post-header-button:hover {
+    background: #f3f3f3;
+}
+
+.post-header .user-avatar {
+    width:48px;
+    height: 48px;
+    cursor:pointer;
+    margin-right: 13px;
+}
+
+.post-info {
+    display:flex;
+    flex-wrap: wrap; /* - Отвечает за возможность переноса элементов */
+}
+
+.post-author {
+    width:100%;
+}
+
+.post-time {
+font-size: 14px;
+line-height: 22px;
+color: #8C8C8C;
+}
+
+.post-time:after { /* Маленькая точка между 2hrs и кнопкой настроек */
+content:'';
+width: 4px;
+height: 4px;
+background: #bfbfbf;  
+display:inline-block  ;
+border-radius:50%;
+margin-right: 6px;
+margin-left: 6px;
+vertical-align: middle; /* - Вертикальное выравнивание */
+}
+
+.post-info-time {
+    display: flex;
+    align-items: center;
+}
+
+/* Текстовый контент в новостных события в ленте */
+
+.post-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    margin-bottom: 16px;
+}
+
+.post-text a {
+    color:#096dd9;
+    text-decoration: none;
+}
+
+.post-img {
+    border:1px solid #bfbfbf;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+.likes {
+    margin-top:9px;
+    margin-bottom: 9px;
+    align-items: center;
+    display: flex;
+}
+
+.likes-counter {
+font-size: 14px;
+line-height: 22px;
+color: #595959;
+font-weight: normal;
+margin-left: 4px;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.post-button {
+    background-color: white;
+    border:none;
+    border-radius:4px;
+    display: flex;
+    align-items: center;
+}
+
+.post-button-text {
+font-weight: 400;
+font-size: 15px;
+color: #595959;
+line-height: 22px;
+margin-left: 8px;
+}
+
+.post-button-icon:hover path{
+    fill:#1890FF;
+}
+
+.post-button-icon {
+    fill: #595959;
+}
+
+.post-footer:before{
+    content: '';
+    width:100%;
+    height: 1px;
+    align-items: center;
+    background-color: #e8e8e8;
+    margin-bottom: 16px;
+}
+
+/* Правый блок - сайдбар */
+
+.right-sidebar {
+    width: 384px;
+}
+
+.stories {
+background-color:#fff;
+box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+border-radius:4px;
+margin-top: 16px;
+padding: 16px;
+margin-left: 24px;
+}
+
+.stories-icon {
+    fill:#0050B3;
+    vertical-align: sub;
+    margin-right: 8px;
+}
+
+.stories-icon:hover path {
+    fill:rgb(35, 44, 66);
+}
+
+.story-button-link {
+font-size: 15px;
+color: #0050B3;
+text-decoration: none;
+font-weight: normal;
+display: inline-flex;
+margin-left: 17px;
+}
+
+.story-button-link:hover {
+color: rgb(35, 44, 66);
+}
+
+/* .story-button-link:first-child:after {
+    content:"";
+    width: 4px;
+    height: 4px;
+    background: #bfbfbf;
+    border-radius:50%;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+} */
+
+.story-title {
+font-size: 16px;
+line-height: 22px;
+color: rgb(22, 22, 22);
+font-weight: 600;
+margin: 0;
+}
+
+.story-text {
+font-size: 15px;
+line-height: 22px; 
+color: #8C8C8C;
+}
+
+.story-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.story-title-2 {
+font-size: 15px;
+line-height: 22px; 
+display: flex;
+align-items: center;
+color: #0050B3;
+text-decoration: none;
+font-weight: 600;
+}
+
+.story-buttons {
+display: flex;
+align-items: center;
+}
+
+.story-item-add {
+    margin-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;  
+}
+
+.story-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+
+.story-item-text {
+    margin-left: 12px;
+}
+
+.story-logo-icon {
+    cursor: pointer;
+}
+
+.story-logo-icon:hover path{
+    fill: rgba(117, 30, 103, 0.582);
+}
+
+.bday {
+    background-color:#fff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius:4px;
+    margin-top: 16px;
+    padding: 16px;
+    margin-left: 24px;
+}
+
+.bday-icon{
+    vertical-align: sub;
+}
+
+.bday-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #595959;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+}
+.bday-link span{
+margin-left: 8px;
+margin-right: 2px;
+color: #0050B3;
+}
